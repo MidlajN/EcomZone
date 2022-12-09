@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block metadescription %}
+        {{product.description|truncatewords:150}}
+{% endblock %}
+
+{% block title %}
+    {% if category %}
+        {{product.name}} - EcomZone
+    {% endif %}
+{% endblock %}
+
+{% block content %}
+
+<div>
+    <div>
+        <div>
+            <p><a href="{% url 'EcomApp:allProdCat' %}">Home</a> | <a href="{{product.category.get_url}}">{{ product.category }}</a> </p>
+        </div>
+    </div>
+
+    <div>
+        <div align="center">
+            <img src="{{product.prod_img.url}}" width="30%" alt="{{product.name}}">
+        </div>
+    </div>
+    <div>
+        <div align="center">
+            <legend>{{product.name}}</legend>
+            <p>${{product.price}}</p>
+            <p>{{product.description}}</p>
+            {% if product.stock <= 0 %}
+                <p style="color:red">Out of Stock</p>
+            {% else %}
+                <p>Add To Cart</p>
+            {% endif %}
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}

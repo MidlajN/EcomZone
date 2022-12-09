@@ -21,27 +21,27 @@
 {% if category %}
 <div>
     <div>
-        <p><a href="{% url 'EcomApp:allProdCat' " >Our Product Collection</a></p>
+        <p><a href="{% url 'EcomApp:allProdCat' %}" >Our Product Collection</a></p>
     </div>
 </div>
 {% endif %}
 
 <div>
 {% if category %}
-    <div>
-        <img src="{{category.img.url}}" alt="{{category.name}}">
+    <div  align="center">
+        <img src="{{category.cat_img.url}}" width="30%" alt="{{category.name}}">
     </div><br>
 
-    <div>
+    <div align="center">
         <h2>{{category.name}}</h2>
         <p>{{category.description}}</p>
     </div>
 
 {% else %}
     <div>
-        <img src="{% static 'images/banner.jpeg' %}" width="100%">
+        <img  src="{% static 'images/banner.jpeg' %}" width="100%" height="400rem">
     </div><br>
-    <div>
+    <div class="container">
         <h3>Our Products</h3>
         <p>
             Enterprise ecommerce is the buying and selling of products to large
@@ -56,11 +56,11 @@
 <div>
     {% for product in products %}
     <div>
-        <div>
-            <a href=""><img src="{{product.img.url}}" alt="{{product.name}}"></a>
+        <div class="col-sm-4">
+            <a href="{{ product.get_url }}"><img src="{{product.prod_img.url}}" width="100px" height="100px" alt="{{product.name}}"></a>
             <div>
-                <h1>{{ products.name }}</h1>
-                <p>{{ product.price }}</p>
+                <h1>{{ product.name }}</h1>
+                <p align="center">$ : {{ product.price }}</p>
             </div>
         </div>
     </div>
