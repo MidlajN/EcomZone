@@ -50,7 +50,7 @@
 <div class="container">
     <div class="row mx-auto">
 
-        {% for product in products %}
+        {% for product in products.object_list %}
 
         <div class="my_bottom_margin col-9 col-sm-12 col-md-4 col-md-12 col-lg-4" style="padding:10px">
             <div class="card text-center">
@@ -73,7 +73,19 @@
             </div>
         </div>
         {% endfor %}
+    </div>
 
+    <div class="mx-auto">
+        {% if products.paginator.num_pages > 1 %}
+        <hr>
+        <div class="text-center">
+            {% for pg in products.paginator.page_range %}
+            <a href="?page={{ pg }}" class="btn btn-light btn-sm
+            {% if products.number == pg %} btn-outline-primary {%endif%}">{{ pg }}</a>
+            {% endfor %}
+        </div>
+        {% endif %}
     </div>
 </div>
+
 {% endblock %}
