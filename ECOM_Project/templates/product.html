@@ -14,27 +14,38 @@
 {% block content %}
 
 <div>
-    <div>
-        <div>
-            <p><a href="{% url 'EcomApp:allProdCat' %}">Home</a> | <a href="{{product.category.get_url}}">{{ product.category }}</a> </p>
+    <div class="row my_prod_row_class">
+        <div class=" mx-auto">
+            <p><a style="text-decoration:none" href="{% url 'EcomApp:allProdCat' %}">Home</a>
+                | <a style="text-decoration:none" href="{{product.category.get_url}}">{{ product.category }}</a>
+                | {{product.name}}
+            </p>
         </div>
     </div>
 
-    <div>
-        <div align="center">
-            <img src="{{product.prod_img.url}}" width="30%" alt="{{product.name}}">
-        </div>
-    </div>
-    <div>
-        <div align="center">
-            <legend>{{product.name}}</legend>
-            <p>${{product.price}}</p>
-            <p>{{product.description}}</p>
-            {% if product.stock <= 0 %}
-                <p style="color:red">Out of Stock</p>
-            {% else %}
-                <p>Add To Cart</p>
-            {% endif %}
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 col-sm-12 col-md-12 col-lg-6">
+                <div align="center" style="padding-top:40px">
+                    <img src="{{product.prod_img.url}}" width="30%" alt="{{product.name}}">
+                </div>
+            </div>
+
+            <div class="col-md-12 col-sm-12 col-md-12 col-lg-6">
+                <div style="padding-top:35px">
+                    <h1 class="prod_head">{{product.name}}</h1>
+                    <p>$ {{product.price}}</p>
+                    <p class="desc_title"><b>Product description</b></p>
+                    <p class="text-justify" style="font-size:14px">{{product.description}}</p>
+                    {% if product.stock <= 0 %}
+                        <p style="color:red">Out of Stock</p>
+                    {% else %}
+                        <button class="btn btn-primary">Add To Cart</button>
+                    {% endif %}
+                </div>
+            </div>
+
         </div>
     </div>
 
