@@ -50,6 +50,7 @@ body {
     height:auto;
     object-fit:contain;
 }
+
 .my_margin_bottom{
     margin-bottom:10px;
 }
@@ -75,4 +76,16 @@ body {
     text-transform:uppercase;
     font-size:13px;
     padding-top:20px;
+}
+
+/** Search Page **/
+.search_bg {
+    padding-top:20px;
+    padding-bottom:1px;
+
+}
+
+.found_prod {
+    padding-top:20px;
+    margin-left:10px;
 }

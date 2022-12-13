@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block metadescription %}
+        Welcome to EcomZone Where you can buy the things that you imagine
+{% endblock %}
+
+<link rel="stylesheet" href="{% static 'css/custom.css' %}">
+
+{% block title %}
+Search
+{% endblock %}
+
+{% block content%}
+<div class="search_bg bg-light">
+    <p class="text-center">You Have Searched For : <b style="color:blue">"{{query}}"</b></p>
+</div>
+
+<div class="container">
+
+    <div class="found_prod">
+       <p class="fw-lighter"> Product Found : <b style="color:blue">{{number}}</b></p>
+    </div>
+
+    <div class="row mx-auto">
+
+        {% for product in products %}
+        <div class="my_bottom_margin col-9 col-sm-12 col-md-4 col-md-12 col-lg-4" style="padding:10px">
+            <div class="card text-center">
+
+                <a href="{{ product.get_url }}">
+                    <div>
+                        <img src="{{product.prod_img.url}}" height="250px" alt="{{product.name}}">
+                    </div>
+                </a>
+
+                <div class="card-body">
+                    <a href="{{product.get_url}}" style="text-decoration:none;color:black">
+                        <div class="card-title" style="margin-top:25px;height:5rem">
+                            <h1 style="font-size:20px"><b>{{ product.name }}</b></h1>
+                            <p style="font-size:13px">$ : {{ product.price }}</p>
+                        </div>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+
+        {% empty %}
+        <div class="row mx-auto">
+            <p class="text-center">Zero Result Found</p>
+        </div>
+        {% endfor %}
+
+    </div>
+</div>
+{% endblock %}

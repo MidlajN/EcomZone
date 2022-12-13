@@ -56,14 +56,14 @@
             <div class="card text-center">
 
                 <a href="{{ product.get_url }}">
-                    <div class="my_image">
+                    <div>
                         <img src="{{product.prod_img.url}}" height="250px" alt="{{product.name}}">
                     </div>
                 </a>
 
                 <div class="card-body">
                     <a href="{{product.get_url}}" style="text-decoration:none;color:black">
-                        <div class="card-title" style="margin-top:10px">
+                        <div class="card-title" style="margin-top:25px;height:5rem">
                             <h1 style="font-size:20px"><b>{{ product.name }}</b></h1>
                             <p style="font-size:13px">$ : {{ product.price }}</p>
                         </div>
@@ -87,5 +87,4 @@
         {% endif %}
     </div>
 </div>
-
 {% endblock %}
