@@ -3,6 +3,6 @@ from . import views
 
 app_name = 'EcomSearch'
 urlpatterns = [
-    path('/', views.SearchResult, name='SearchResult')
+    path('search/', views.SearchResult, name='SearchResult')
 
 ]
