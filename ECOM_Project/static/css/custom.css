@@ -23,9 +23,12 @@ body {
     text-transform:uppercase;
 }
 
-.footer {
+.my_footer {
+    height:50px;
+}
+.my_footer p{
     padding-top:20px;
-    font-size:12px;
+    font-size:12px
 }
 
 /** category page **/
