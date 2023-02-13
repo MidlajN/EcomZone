@@ -1,4 +1,4 @@
-from django.contrib import messages
+from django.contrib import messages, auth
 from django.contrib.auth.models import User
 from django.shortcuts import render, redirect
 
@@ -35,3 +35,24 @@ def Register(request):
 
         return redirect('/')
     return render(request, 'registration.html')
+
+
+def Login(request):
+    if request.method == 'POST':
+        username = request.POST['username']
+        password = request.POST['password']
+
+        user = auth.authenticate(username=username, password=password)
+
+        if user is not None:
+            auth.login(request, user)
+            return redirect('/')
+        else:
+            messages.info(request, 'Invalid Credential')
+            return redirect('EcomCredential:login')
+    return render(request, 'login.html')
+
+
+def Logout(request):
+    auth.logout(request)
+    return redirect('/')

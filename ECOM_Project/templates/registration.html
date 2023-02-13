@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
-<div >
+<div>
 <div class="signup-form" style="width:35rem;">
     <form method="post" enctype="multipart/form-data">
         {% csrf_token %}
@@ -38,7 +38,7 @@
 
         <div class=" form-group ">
             <div class="row">
-                <div class="col-sm-6">Already have an account? <br> <a href="#" style="color:blue;">Sign in</a></div>
+                <div class="col-sm-6">Already have an account? <br> <a href="{% url 'EcomCredential:login' %}" style="color:blue;">Sign in</a></div>
                 <div class="col-sm-6 " align="right"><button type="submit" class="btn btn-primary ">Register Now</button></div>
             </div>
         </div>

@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div>
+<div class="signup-form" style="width:35rem;">
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <h2>Log In</h2>
+        <p class="hint-text">If you already have account. Log In</p>
+
+        <div class="form-group">
+            <input type="text" class="form-control" name="username" placeholder="Username" required="required">
+        </div>
+
+        <div class="form-group">
+            <input type="password" class="form-control" name="password" placeholder="Password" required="required">
+        </div>
+
+        <div class=" form-group ">
+            <div class="row">
+                <div class="col-sm-6">Doesnt have an account? <br> <a href="{% url 'EcomCredential:register' %}" style="color:blue;">Sign Up</a></div>
+                <div class="col-sm-6 " align="right"><button type="submit" class="btn btn-primary ">Log In</button></div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="text-center" style="color:red;">{% for msg1 in messages %} {{ msg1 }} {% endfor %}</div>
+        </div>
+
+    </form>
+</div>
+</div>
+
+{% endblock %}
