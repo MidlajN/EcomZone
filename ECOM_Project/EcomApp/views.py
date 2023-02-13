@@ -1,7 +1,9 @@
+from django.contrib import messages, auth
 from django.http import HttpResponse
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from .models import Category, Product
 from django.core.paginator import Paginator, EmptyPage, InvalidPage
+from django.contrib.auth.models import User
 
 
 # Create your views here.
@@ -37,3 +39,5 @@ def ProdCatDetail(request, c_slug, product_slug):
         raise e
 
     return render(request, 'product.html', {'product': product})
+
+

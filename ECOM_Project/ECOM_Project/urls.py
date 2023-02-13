@@ -24,6 +24,7 @@ urlpatterns = [
     path('', include('EcomApp.urls')),
     path('/search/', include('EcomSearch.urls')),
     path('/cart/', include('EcomCart.urls')),
+    path('/credential/', include('EcomCredential.urls'))
 
 ]
 

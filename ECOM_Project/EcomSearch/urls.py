@@ -4,5 +4,4 @@ from . import views
 app_name = 'EcomSearch'
 urlpatterns = [
     path('search/', views.SearchResult, name='SearchResult')
-
 ]

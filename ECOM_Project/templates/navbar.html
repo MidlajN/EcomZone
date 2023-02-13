@@ -25,19 +25,55 @@
         </li>
 
         {% if item_count > 0 %}
+        <div>
         <li class="nav-item">
           <a class="nav-link " href="{% url 'EcomCart:cart_details' %}">
-            <i class="fa fa-shopping-cart fa-lg" style="color:blue;"></i>({{item_count}})</a>
+            <span class="badge rounded-pill  bg-primary">
+            <i class="fa fa-shopping-cart fa-lg material-icons" style="color:white;"></i>{{item_count}}
+            </span>
+          </a>
         </li>
+        </div>
         {% endif %}
       </ul>
 
-      <form class="d-flex" action="{% url 'EcomSearch:SearchResult' %}"  method="get">
-        {% csrf_token %}
-        <input class="form-control me-2" type="search" placeholder="Search" name="q" aria-label="Search">
-        <button class="btn btn-outline-primary" type="submit"><i class="fa fa-search"></i></button>
-      </form>
+      <div class="d-flex">
 
+        <form class="d-flex" style="padding-right:8px;" action="{% url 'EcomSearch:SearchResult' %}"  method="get">
+          {% csrf_token %}
+          <input class="form-control me-2" type="search" placeholder="Search" name="q" aria-label="Search">
+          <button class="btn btn-outline-primary" type="submit"><i class="fas fa-search"></i></button>
+        </form>
+
+        <div class="dropdown" style="margin:auto;">
+          <a
+            class="dropdown-toggle d-flex align-items-center hidden-arrow"
+            href=""
+            id="navbarDropdownMenuAvatar"
+            role="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false">
+            <img
+              src="https://as2.ftcdn.net/v2/jpg/02/15/84/43/1000_F_215844325_ttX9YiIIyeaR7Ne6EaLLjMAmy4GvPC69.jpg"
+              class="rounded-circle"
+              height="25"
+              alt="Black and White Portrait of a Man"
+              loading="lazy" />
+          </a>
+
+          <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuAvatar">
+            <li>
+              <a class="dropdown-item" id="regmenu" href="{% url 'EcomCredential:register' %}">Sign Up</a></li>
+
+            <li>
+              <a class="dropdown-item" href="#">Settings</a></li>
+
+            <li>
+              <a class="dropdown-item" href="#">Logout</a></li>
+
+          </ul>
+        </div>
+      </div>
     </div>
   </div>
 </nav>
